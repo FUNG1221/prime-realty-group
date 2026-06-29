@@ -1527,6 +1527,137 @@ text-decoration:underline;
   }
 }
 
+
+
+/* =========================================================
+   Featured Listings Mobile Swipe Carousel Fix
+   Shows one featured listing per phone screen and lets users
+   swipe left or right to view the next listing.
+   ========================================================= */
+@media (max-width:640px){
+  #featured-listings.featured{
+    min-height:calc(100svh - 76px) !important;
+    padding:34px 5% 28px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+  }
+
+  #featured-listings .section-label{
+    font-size:10px !important;
+    letter-spacing:4px !important;
+    margin-bottom:8px !important;
+  }
+
+  #featured-listings .section-title{
+    font-size:clamp(30px,8.2vw,38px) !important;
+    line-height:.94 !important;
+    max-width:100% !important;
+  }
+
+  #featured-listings .featured-grid{
+    margin-top:18px !important;
+    display:flex !important;
+    grid-template-columns:none !important;
+    gap:16px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory !important;
+    -webkit-overflow-scrolling:touch !important;
+    padding:0 2px 10px !important;
+  }
+
+  #featured-listings .featured-grid::-webkit-scrollbar{
+    display:none !important;
+  }
+
+  #featured-listings .listing-small-wrap{
+    display:contents !important;
+  }
+
+  #featured-listings .listing-large,
+  #featured-listings .listing-small{
+    flex:0 0 88vw !important;
+    width:88vw !important;
+    height:43svh !important;
+    min-height:285px !important;
+    max-height:345px !important;
+    scroll-snap-align:start !important;
+    position:relative !important;
+    overflow:hidden !important;
+  }
+
+  #featured-listings .listing-large img,
+  #featured-listings .listing-small img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center !important;
+    opacity:.86 !important;
+  }
+
+  #featured-listings .listing-overlay{
+    left:14px !important;
+    right:14px !important;
+    bottom:14px !important;
+    padding:14px 15px !important;
+    background:rgba(7,25,47,.82) !important;
+  }
+
+  #featured-listings .listing-overlay .price{
+    font-size:19px !important;
+    margin-bottom:5px !important;
+  }
+
+  #featured-listings .listing-overlay h3{
+    font-size:clamp(25px,7vw,32px) !important;
+    line-height:1.02 !important;
+    margin-bottom:6px !important;
+  }
+
+  #featured-listings .listing-overlay .details{
+    font-size:11px !important;
+    gap:9px !important;
+    margin-top:7px !important;
+  }
+}
+
+@media (max-width:390px){
+  #featured-listings.featured{
+    padding-top:28px !important;
+    padding-bottom:24px !important;
+  }
+
+  #featured-listings .section-title{
+    font-size:29px !important;
+  }
+
+  #featured-listings .featured-grid{
+    margin-top:14px !important;
+    gap:14px !important;
+  }
+
+  #featured-listings .listing-large,
+  #featured-listings .listing-small{
+    height:39svh !important;
+    min-height:260px !important;
+    max-height:310px !important;
+  }
+
+  #featured-listings .listing-overlay{
+    padding:12px 13px !important;
+  }
+
+  #featured-listings .listing-overlay .price{
+    font-size:17px !important;
+  }
+
+  #featured-listings .listing-overlay h3{
+    font-size:25px !important;
+  }
+}
+
 </style>
 </head>
 
