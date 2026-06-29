@@ -2172,6 +2172,20 @@ body.gallery-open{
   }
 }
 
+
+
+/* =========================================================
+   Mobile Gallery X Button Right Side Fix
+   Moves the circular X close button from left to right on mobile
+   ========================================================= */
+@media (max-width:640px){
+  .gallery-modal.active .gallery-close{
+    left:auto !important;
+    right:18px !important;
+    top:calc(18px + env(safe-area-inset-top)) !important;
+  }
+}
+
 </style>
 </head>
 
