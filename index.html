@@ -834,7 +834,28 @@
       transform:translateY(-2px) scale(.92);
     }
 
-    @media (max-width:640px){
+    
+.privacy-consent{
+display:flex;
+align-items:flex-start;
+gap:10px;
+margin:18px 0 22px;
+font-size:14px;
+color:#555;
+line-height:1.6;
+}
+.privacy-consent input{
+margin-top:3px;
+width:18px;
+height:18px;
+accent-color:#c9a24d;
+}
+.privacy-consent a{
+color:var(--navy);
+text-decoration:underline;
+}
+
+@media (max-width:640px){
       .back-to-top{
         right:20px;
         bottom:22px;
@@ -1305,7 +1326,12 @@
           <option>Private Listing</option>
         </select>
         <textarea placeholder="Tell us what kind of property you are looking for"></textarea>
-        <button class="btn" type="submit">Request Consultation</button>
+        <label class="privacy-consent">
+<input type="checkbox" required>
+<span>I agree to the <a href="#">Privacy Policy</a> as outlined on the website.</span>
+</label>
+
+<button class="btn" type="submit">Request Consultation</button>
       </form>
 
       <div class="map-placeholder">
