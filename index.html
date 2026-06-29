@@ -36,24 +36,6 @@
     "areaServed": "Miami, Florida",
     "priceRange": "$$$$"
   }
-
-    const backToTop = document.getElementById("backToTop");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.add("show");
-      } else {
-        backToTop.classList.remove("show");
-      }
-    });
-
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-
   </script>
 
   <style>
@@ -960,7 +942,474 @@ text-decoration:underline;
         font-size: 23px;
       }
     }
-  </style>
+  
+
+    /* =========================================================
+       Premium Mobile Compact Layout
+       Makes mobile sections feel closer to one-screen sections
+       ========================================================= */
+    @media (max-width:640px){
+      :root{
+        --mobile-nav-height:76px;
+      }
+
+      section{
+        scroll-margin-top:82px;
+      }
+
+      .navbar{
+        min-height:76px;
+        padding:16px 5%;
+      }
+
+      .logo{
+        font-size:22px;
+        line-height:1.05;
+        max-width:260px;
+        white-space:nowrap;
+      }
+
+      .menu-toggle span{
+        width:28px;
+      }
+
+      .section-label{
+        font-size:11px;
+        letter-spacing:5px;
+        margin-bottom:12px;
+      }
+
+      .section-title{
+        font-size:clamp(36px,10.5vw,46px);
+        line-height:.96;
+      }
+
+      .hero{
+        min-height:100svh;
+        padding:105px 5% 28px;
+        align-items:center;
+      }
+
+      .hero h1{
+        font-size:clamp(44px,13vw,58px);
+        line-height:.9;
+        margin-bottom:18px;
+      }
+
+      .hero p{
+        font-size:14px;
+        line-height:1.55;
+        margin-bottom:18px;
+      }
+
+      .search-bar{
+        gap:8px;
+        padding:12px;
+      }
+
+      .search-bar input,
+      .search-bar select{
+        padding:12px;
+        font-size:13px;
+      }
+
+      .btn{
+        padding:13px 18px;
+        font-size:11px;
+      }
+
+      .about,
+      .agents,
+      .why,
+      .featured,
+      .neighborhoods,
+      .testimonials,
+      .faq,
+      .contact{
+        padding:58px 5% 48px;
+      }
+
+      .about{
+        min-height:calc(100svh - var(--mobile-nav-height));
+        display:flex;
+        align-items:center;
+      }
+
+      .about-image{
+        display:none;
+      }
+
+      .about-text p{
+        font-size:15px;
+        line-height:1.55;
+        margin-top:18px;
+      }
+
+      .stats{
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+        margin-top:22px;
+        padding-top:18px;
+      }
+
+      .stat strong{
+        font-size:32px;
+        line-height:1;
+      }
+
+      .stat span{
+        font-size:10px;
+        letter-spacing:1.8px;
+        line-height:1.35;
+      }
+
+      .properties{
+        padding:58px 0 48px;
+      }
+
+      .properties-header{
+        padding:0 5% 26px;
+        gap:14px;
+      }
+
+      .properties-header p{
+        font-size:14px;
+        line-height:1.55;
+      }
+
+      .property-strip{
+        gap:16px;
+        padding:0 5% 12px;
+      }
+
+      .property-panel{
+        min-width:82vw;
+      }
+
+      .property-panel img{
+        height:230px;
+      }
+
+      .property-info{
+        padding:18px;
+      }
+
+      .price{
+        font-size:20px;
+      }
+
+      .property-info h3{
+        font-size:27px;
+        line-height:1;
+      }
+
+      .details{
+        gap:9px;
+        font-size:12px;
+        margin-top:12px;
+      }
+
+      .agents{
+        min-height:calc(100svh - var(--mobile-nav-height));
+      }
+
+      .agents .section-title{
+        font-size:clamp(38px,10.5vw,48px);
+      }
+
+      .agents-layout{
+        display:flex;
+        overflow-x:auto;
+        gap:16px;
+        margin-top:28px;
+        scroll-snap-type:x mandatory;
+        padding-bottom:8px;
+      }
+
+      .agent{
+        min-width:78vw;
+        scroll-snap-align:start;
+      }
+
+      .agent img{
+        height:285px;
+        object-position:center top;
+      }
+
+      .agent-content{
+        padding:16px;
+      }
+
+      .agent-content h3{
+        font-size:26px;
+      }
+
+      .agent-content p{
+        font-size:13px;
+        line-height:1.45;
+      }
+
+      .why{
+        min-height:calc(100svh - var(--mobile-nav-height));
+        display:flex;
+        align-items:center;
+      }
+
+      .why-image{
+        display:none;
+      }
+
+      .why-list{
+        gap:12px;
+      }
+
+      .why .section-title{
+        font-size:clamp(37px,10.5vw,48px);
+        margin-bottom:8px;
+      }
+
+      .why-item{
+        padding:8px 0 8px 16px;
+        border-left-width:3px;
+      }
+
+      .why-item h3{
+        font-size:25px;
+        line-height:1.05;
+        margin-bottom:5px;
+      }
+
+      .why-item p{
+        font-size:14px;
+        line-height:1.45;
+      }
+
+      .featured{
+        min-height:calc(100svh - var(--mobile-nav-height));
+      }
+
+      .featured .section-title{
+        font-size:clamp(36px,10vw,46px);
+      }
+
+      .featured-grid{
+        margin-top:28px;
+        gap:16px;
+      }
+
+      .listing-large img,
+      .listing-small img{
+        height:360px;
+      }
+
+      .listing-small-wrap{
+        display:flex;
+        overflow-x:auto;
+        gap:16px;
+      }
+
+      .listing-small{
+        min-width:82vw;
+      }
+
+      .listing-overlay{
+        left:18px;
+        right:18px;
+        bottom:18px;
+        padding:18px;
+      }
+
+      .listing-overlay h3{
+        font-size:30px;
+        line-height:1.06;
+      }
+
+      .neighborhoods{
+        min-height:calc(100svh - var(--mobile-nav-height));
+      }
+
+      .neighborhoods .section-title{
+        font-size:clamp(38px,10.5vw,48px);
+      }
+
+      .neighborhood-row{
+        display:flex;
+        overflow-x:auto;
+        gap:16px;
+        margin-top:28px;
+        border-top:none;
+        scroll-snap-type:x mandatory;
+      }
+
+      .neighborhood{
+        min-width:82vw;
+        min-height:345px;
+        padding:24px;
+        border:1px solid rgba(255,255,255,.16);
+        scroll-snap-align:start;
+      }
+
+      .neighborhood h3{
+        font-size:34px;
+      }
+
+      .neighborhood p{
+        font-size:15px;
+        line-height:1.5;
+      }
+
+      .testimonials{
+        min-height:calc(100svh - var(--mobile-nav-height));
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+
+      .testimonial-layout{
+        margin-top:26px;
+        gap:12px;
+      }
+
+      .quote-mark{
+        font-size:86px;
+        line-height:.7;
+      }
+
+      .testimonial-box{
+        padding:26px 0;
+      }
+
+      .testimonial-box p{
+        font-size:31px;
+        line-height:1.08;
+      }
+
+      .faq{
+        min-height:calc(100svh - var(--mobile-nav-height));
+      }
+
+      .faq-wrap{
+        margin-top:26px;
+      }
+
+      .faq-question{
+        padding:17px;
+        font-size:22px;
+        line-height:1.1;
+      }
+
+      .faq-answer p{
+        padding:0 17px 17px;
+        font-size:14px;
+        line-height:1.5;
+      }
+
+      .contact{
+        padding-bottom:54px;
+      }
+
+      .contact .section-title{
+        font-size:clamp(36px,10vw,46px);
+      }
+
+      .contact-layout{
+        margin-top:26px;
+        gap:18px;
+      }
+
+      .contact-form{
+        padding:20px;
+      }
+
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form select{
+        padding:12px;
+        margin-bottom:10px;
+        font-size:13px;
+      }
+
+      .contact-form textarea{
+        min-height:82px;
+      }
+
+      .privacy-consent{
+        margin:8px 0 14px;
+        font-size:12px;
+        line-height:1.45;
+      }
+
+      .privacy-consent input{
+        min-width:16px;
+        width:16px;
+        height:16px;
+      }
+
+      .map-placeholder{
+        min-height:220px;
+        padding:18px;
+      }
+
+      .map-card{
+        padding:16px;
+      }
+
+      .map-card h3{
+        font-size:27px;
+      }
+
+      footer{
+        padding:22px 5% 90px;
+        font-size:12px;
+      }
+
+      .back-to-top{
+        right:18px;
+        bottom:calc(78px + env(safe-area-inset-bottom));
+        width:46px;
+        height:46px;
+      }
+
+      .back-to-top svg{
+        width:19px;
+        height:19px;
+      }
+
+      .reveal{
+        transform:translateY(22px);
+      }
+    }
+
+    @media (max-width:390px){
+      .section-title,
+      .agents .section-title,
+      .why .section-title,
+      .featured .section-title,
+      .neighborhoods .section-title,
+      .contact .section-title{
+        font-size:36px;
+      }
+
+      .about-text p,
+      .why-item p,
+      .properties-header p{
+        font-size:13.5px;
+      }
+
+      .agent img{
+        height:255px;
+      }
+
+      .listing-large img,
+      .listing-small img{
+        height:330px;
+      }
+
+      .neighborhood{
+        min-height:315px;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -1408,24 +1857,6 @@ text-decoration:underline;
       e.preventDefault();
       alert("Thank you. Prime Realty Group will contact you shortly.");
     });
-
-    const backToTop = document.getElementById("backToTop");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.add("show");
-      } else {
-        backToTop.classList.remove("show");
-      }
-    });
-
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-
   </script>
 
 </body>
