@@ -1658,6 +1658,299 @@ text-decoration:underline;
   }
 }
 
+
+
+/* =========================================================
+   Luxury Property Gallery Modal
+   Click any featured listing to view more rooms and details
+   ========================================================= */
+.gallery-listing{
+  cursor:pointer;
+}
+
+.gallery-listing::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,0), rgba(201,162,77,.08));
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+}
+
+.gallery-listing:hover::after{
+  opacity:1;
+}
+
+.gallery-trigger{
+  margin-top:18px;
+  border:1px solid rgba(201,162,77,.75);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  padding:11px 16px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.gallery-trigger:hover{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.gallery-modal{
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  background:rgba(4,16,31,.94);
+  backdrop-filter:blur(18px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .35s ease, visibility .35s ease;
+}
+
+.gallery-modal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.gallery-inner{
+  min-height:100svh;
+  padding:34px 5% 28px;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  gap:18px;
+  color:#fff;
+}
+
+.gallery-topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.gallery-kicker{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.gallery-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,4vw,54px);
+  line-height:.95;
+}
+
+.gallery-close{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:32px;
+  line-height:1;
+  cursor:pointer;
+  transition:.3s ease;
+  flex:0 0 auto;
+}
+
+.gallery-close:hover{
+  background:var(--gold);
+  color:var(--navy);
+  border-color:var(--gold);
+}
+
+.gallery-stage{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:0;
+}
+
+.gallery-image-wrap{
+  width:min(1180px,100%);
+  height:min(68svh,720px);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 30px 90px rgba(0,0,0,.34);
+  background:#07192f;
+}
+
+.gallery-image-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.gallery-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.32);
+  background:rgba(7,25,47,.56);
+  color:#fff;
+  font-size:34px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s ease;
+}
+
+.gallery-nav:hover{
+  background:var(--gold);
+  color:var(--navy);
+  border-color:var(--gold);
+}
+
+.gallery-prev{
+  left:14px;
+}
+
+.gallery-next{
+  right:14px;
+}
+
+.gallery-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  width:min(1180px,100%);
+  margin:0 auto;
+}
+
+.gallery-caption{
+  font-family:var(--serif);
+  font-size:28px;
+  color:#fff;
+}
+
+.gallery-count{
+  color:rgba(255,255,255,.7);
+  font-size:13px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.gallery-thumbs{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:4px 0;
+  max-width:520px;
+}
+
+.gallery-thumbs::-webkit-scrollbar{
+  display:none;
+}
+
+.gallery-thumb{
+  width:72px;
+  height:52px;
+  flex:0 0 auto;
+  border:2px solid transparent;
+  overflow:hidden;
+  cursor:pointer;
+  opacity:.58;
+  transition:.25s ease;
+  background:#102845;
+}
+
+.gallery-thumb.active{
+  opacity:1;
+  border-color:var(--gold);
+}
+
+.gallery-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+body.gallery-open{
+  overflow:hidden;
+}
+
+@media (max-width:640px){
+  .gallery-trigger{
+    margin-top:10px !important;
+    padding:9px 12px !important;
+    font-size:9px !important;
+    letter-spacing:1.2px !important;
+  }
+
+  .gallery-inner{
+    padding:22px 5% calc(24px + env(safe-area-inset-bottom));
+    gap:14px;
+  }
+
+  .gallery-title{
+    font-size:30px;
+  }
+
+  .gallery-close{
+    width:44px;
+    height:44px;
+    font-size:28px;
+  }
+
+  .gallery-image-wrap{
+    height:58svh;
+  }
+
+  .gallery-nav{
+    width:44px;
+    height:44px;
+    font-size:28px;
+    background:rgba(7,25,47,.62);
+  }
+
+  .gallery-prev{
+    left:8px;
+  }
+
+  .gallery-next{
+    right:8px;
+  }
+
+  .gallery-footer{
+    display:block;
+  }
+
+  .gallery-caption{
+    font-size:24px;
+    line-height:1.05;
+    margin-bottom:8px;
+  }
+
+  .gallery-count{
+    font-size:11px;
+    margin-bottom:12px;
+  }
+
+  .gallery-thumbs{
+    max-width:100%;
+  }
+
+  .gallery-thumb{
+    width:64px;
+    height:46px;
+  }
+}
+
 </style>
 </head>
 
@@ -1883,7 +2176,7 @@ text-decoration:underline;
     </div>
 
     <div class="featured-grid reveal">
-      <article class="listing-large">
+      <article class="listing-large gallery-listing" data-gallery="palm">
         <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=80" alt="Palm Island estate">
         <div class="listing-overlay">
           <div class="price">$16,800,000</div>
@@ -1893,11 +2186,12 @@ text-decoration:underline;
             <span>10 Baths</span>
             <span>13,500 Sq Ft</span>
           </div>
+          <button class="gallery-trigger" type="button">View Gallery</button>
         </div>
       </article>
 
       <div class="listing-small-wrap">
-        <article class="listing-small">
+        <article class="listing-small gallery-listing" data-gallery="design">
           <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=80" alt="Design district residence">
           <div class="listing-overlay">
             <div class="price">$4,250,000</div>
@@ -1907,10 +2201,11 @@ text-decoration:underline;
               <span>4 Baths</span>
               <span>3,980 Sq Ft</span>
             </div>
+            <button class="gallery-trigger" type="button">View Gallery</button>
           </div>
         </article>
 
-        <article class="listing-small">
+        <article class="listing-small gallery-listing" data-gallery="sunny">
           <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Oceanfront condo">
           <div class="listing-overlay">
             <div class="price">$6,100,000</div>
@@ -1920,6 +2215,7 @@ text-decoration:underline;
               <span>4 Baths</span>
               <span>3,600 Sq Ft</span>
             </div>
+            <button class="gallery-trigger" type="button">View Gallery</button>
           </div>
         </article>
       </div>
@@ -2045,6 +2341,35 @@ text-decoration:underline;
   </section>
 
 
+  <div class="gallery-modal" id="propertyGallery" aria-hidden="true">
+    <div class="gallery-inner">
+      <div class="gallery-topbar">
+        <div>
+          <div class="gallery-kicker">Property Gallery</div>
+          <h3 class="gallery-title" id="galleryTitle">Prime Residence</h3>
+        </div>
+        <button class="gallery-close" id="galleryClose" type="button" aria-label="Close gallery">×</button>
+      </div>
+
+      <div class="gallery-stage" id="galleryStage">
+        <button class="gallery-nav gallery-prev" id="galleryPrev" type="button" aria-label="Previous image">‹</button>
+        <div class="gallery-image-wrap">
+          <img id="galleryImage" src="" alt="Property gallery image">
+        </div>
+        <button class="gallery-nav gallery-next" id="galleryNext" type="button" aria-label="Next image">›</button>
+      </div>
+
+      <div class="gallery-footer">
+        <div>
+          <div class="gallery-caption" id="galleryCaption">Exterior View</div>
+          <div class="gallery-count" id="galleryCount">1 / 8</div>
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+      </div>
+    </div>
+  </div>
+
+
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 19V5"></path>
@@ -2106,7 +2431,155 @@ text-decoration:underline;
       e.preventDefault();
       alert("Thank you. Prime Realty Group will contact you shortly.");
     });
-  </script>
+  
+
+    const galleryData = {
+      palm: {
+        title: "Palm Island Architectural Estate",
+        images: [
+          {src:"https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1600&q=85", caption:"Exterior Architecture"},
+          {src:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85", caption:"Grand Living Room"},
+          {src:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=85", caption:"Open Kitchen"},
+          {src:"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85", caption:"Primary Bedroom"},
+          {src:"https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1600&q=85", caption:"Spa Bathroom"},
+          {src:"https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=85", caption:"Private Pool"},
+          {src:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85", caption:"Formal Lounge"},
+          {src:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85", caption:"Garden View"}
+        ]
+      },
+      design: {
+        title: "Design District Residence",
+        images: [
+          {src:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=85", caption:"Residence Exterior"},
+          {src:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85", caption:"Designer Living Area"},
+          {src:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85", caption:"Dining Room"},
+          {src:"https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=85", caption:"Chef Kitchen"},
+          {src:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=85", caption:"Primary Suite"},
+          {src:"https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=85", caption:"Luxury Bathroom"},
+          {src:"https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1600&q=85", caption:"Private Terrace"}
+        ]
+      },
+      sunny: {
+        title: "Sunny Isles Oceanfront Condo",
+        images: [
+          {src:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85", caption:"Oceanfront Residence"},
+          {src:"https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85", caption:"Skyline Living Room"},
+          {src:"https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1600&q=85", caption:"Ocean View Lounge"},
+          {src:"https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=85", caption:"Modern Bedroom"},
+          {src:"https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=85", caption:"Resort Pool Deck"},
+          {src:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=85", caption:"Guest Suite"},
+          {src:"https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1600&q=85", caption:"Private Balcony"}
+        ]
+      }
+    };
+
+    const galleryModal = document.getElementById("propertyGallery");
+    const galleryTitle = document.getElementById("galleryTitle");
+    const galleryImage = document.getElementById("galleryImage");
+    const galleryCaption = document.getElementById("galleryCaption");
+    const galleryCount = document.getElementById("galleryCount");
+    const galleryThumbs = document.getElementById("galleryThumbs");
+    const galleryClose = document.getElementById("galleryClose");
+    const galleryPrev = document.getElementById("galleryPrev");
+    const galleryNext = document.getElementById("galleryNext");
+    const galleryStage = document.getElementById("galleryStage");
+    let currentGallery = null;
+    let currentIndex = 0;
+    let touchStartX = 0;
+
+    function renderGalleryImage(){
+      if(!currentGallery) return;
+      const item = currentGallery.images[currentIndex];
+      galleryImage.src = item.src;
+      galleryImage.alt = item.caption;
+      galleryCaption.textContent = item.caption;
+      galleryCount.textContent = `${currentIndex + 1} / ${currentGallery.images.length}`;
+
+      galleryThumbs.querySelectorAll(".gallery-thumb").forEach((thumb, index) => {
+        thumb.classList.toggle("active", index === currentIndex);
+      });
+    }
+
+    function openGallery(key){
+      currentGallery = galleryData[key];
+      if(!currentGallery) return;
+      currentIndex = 0;
+      galleryTitle.textContent = currentGallery.title;
+      galleryThumbs.innerHTML = "";
+
+      currentGallery.images.forEach((item, index) => {
+        const thumb = document.createElement("button");
+        thumb.className = "gallery-thumb";
+        thumb.type = "button";
+        thumb.innerHTML = `<img src="${item.src}" alt="${item.caption}">`;
+        thumb.addEventListener("click", () => {
+          currentIndex = index;
+          renderGalleryImage();
+        });
+        galleryThumbs.appendChild(thumb);
+      });
+
+      renderGalleryImage();
+      galleryModal.classList.add("active");
+      galleryModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("gallery-open");
+    }
+
+    function closeGallery(){
+      galleryModal.classList.remove("active");
+      galleryModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("gallery-open");
+    }
+
+    function showNextImage(){
+      if(!currentGallery) return;
+      currentIndex = (currentIndex + 1) % currentGallery.images.length;
+      renderGalleryImage();
+    }
+
+    function showPrevImage(){
+      if(!currentGallery) return;
+      currentIndex = (currentIndex - 1 + currentGallery.images.length) % currentGallery.images.length;
+      renderGalleryImage();
+    }
+
+    document.querySelectorAll(".gallery-listing").forEach(listing => {
+      listing.addEventListener("click", () => openGallery(listing.dataset.gallery));
+    });
+
+    document.querySelectorAll(".gallery-trigger").forEach(button => {
+      button.addEventListener("click", event => {
+        event.stopPropagation();
+        const listing = button.closest(".gallery-listing");
+        if(listing) openGallery(listing.dataset.gallery);
+      });
+    });
+
+    galleryClose.addEventListener("click", closeGallery);
+    galleryNext.addEventListener("click", showNextImage);
+    galleryPrev.addEventListener("click", showPrevImage);
+
+    galleryModal.addEventListener("click", event => {
+      if(event.target === galleryModal) closeGallery();
+    });
+
+    galleryStage.addEventListener("touchstart", event => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, {passive:true});
+
+    galleryStage.addEventListener("touchend", event => {
+      const touchEndX = event.changedTouches[0].screenX;
+      if(touchStartX - touchEndX > 45) showNextImage();
+      if(touchEndX - touchStartX > 45) showPrevImage();
+    }, {passive:true});
+
+    document.addEventListener("keydown", event => {
+      if(!galleryModal.classList.contains("active")) return;
+      if(event.key === "Escape") closeGallery();
+      if(event.key === "ArrowRight") showNextImage();
+      if(event.key === "ArrowLeft") showPrevImage();
+    });
+</script>
 
 </body>
 </html>
